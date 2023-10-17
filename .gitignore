@@ -1,0 +1,4 @@
+.env
+bytesize_venv/
+__pycache__/
+migrations/
