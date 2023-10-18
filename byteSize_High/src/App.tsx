@@ -1,13 +1,11 @@
-// import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
 
 // Components
-import Students from './components/Students.js';
-import Parents from './components/Parents.js';
-import Levels from './components/Levels.js';
+import Students from './components/Students.jsx';
+import Parents from './components/Parents.jsx';
+import Levels from './components/Levels.jsx';
 
-function App() {
-    // Example student data
+function HomePage() {
     const studentData = {
         name: 'Raul',
         age: 12,
@@ -16,19 +14,25 @@ function App() {
     }
 
     return (
+        <div>
+            <Students studentInfo={studentData} />
+            <Parents />
+            <Levels />
+        </div>
+    );
+}
+
+function App() {
+    return (
         <Router>
             <div>
                 <header>
-                    <h1>Special Education Dashboard</h1>
-                    <p>Enter Lafayette Portal.</p>
+                    <h1>Special Ed Dashboard</h1>
+                    <p>Enter Lafayette Portal</p>
                 </header>
 
                 <Routes>
-                    <Route path="/" element={<div>
-                        <Students studentInfo={studentData} />
-                        <Parents />
-                        <Levels />
-                    </div>} />
+                    <Route path="/" element={<HomePage />} />
                 </Routes>
 
                 <footer>
