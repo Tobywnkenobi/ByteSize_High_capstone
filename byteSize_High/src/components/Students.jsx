@@ -1,20 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import { Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
-function Students(props) {
+function Students() {
+    const [students, setStudents] = useState([]);
+
+    useEffect(() => {
+        fetch('')
+        .then(response => response.json())
+        .then(data => {
+            setStudents(data);
+        })
+    }, [])
+
     return (
-      <Card style={{ width: '18rem', margin: '1rem' }}>
-        <Card.Body>
-            <Card.Title>{props.studentInfo.name}</Card.Title>
-            <Card.Text>
-                <strong>Age:</strong> {props.studentInfo.age}<br />
-                <strong>Grade:</strong> {props.studentInfo.grade}<br />
-                <strong>level:</strong> {props.studentInfo.level}
-            </Card.Text>
-            <Button variant="primary">View Student Profile</Button>
-        </Card.Body>
-       </Card>
-    );
+        <div>
+        <h2>Students</h2>
+        {students.map(student => (
+            <div key={student.id}>
+                <h3>{student.name}</h3>
+                {/* Add other details here */}
+            </div>
+        ))}
+    </div>
+);
 }
 
 export default Students;

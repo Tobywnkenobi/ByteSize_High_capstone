@@ -1,26 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
 
 // Components
-import Students from './components/Students.jsx';
+import HomePage from "./components/HomePage.jsx"
+import Students from "./components/Students.jsx";
 import Parents from './components/Parents.jsx';
 import Levels from './components/Levels.jsx';
 
-function HomePage() {
-    const studentData = {
-        name: 'Raul',
-        age: 12,
-        grade: "4th grade",
-        level: 2
-    }
-
-    return (
-        <div>
-            <Students studentInfo={studentData} />
-            <Parents />
-            <Levels />
-        </div>
-    );
-}
 
 function App() {
     return (
@@ -32,7 +17,9 @@ function App() {
                 </header>
 
                 <Routes>
-                    <Route path="/" element={<HomePage />} />
+                    <Route path="/home" element={<HomePage />} />  
+                    {/* byteSize_High\src\components\Home.jsx */}
+                    <Route path="/dashboard" element={<HomePage />} />  {/* Renaming to /dashboard for clarity */}
                 </Routes>
 
                 <footer>
